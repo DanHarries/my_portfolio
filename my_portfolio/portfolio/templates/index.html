@@ -226,7 +226,7 @@
                                                         <p class="date bg-primary">{{ job.date_from_to }}</p>
         
                                                         <div class="bottom">
-                                                            <h4 class="name h6 fw--700"><a href="https://answer-4u.com/">{{ job.company_name }}</a></h4>
+                                                            <h4 class="name h6 fw--700"><a href="{{job.url}}">{{ job.company_name }}</a></h4>
         
                                                             <p class="institute ff--primary">{{job.job_title}}</p>
         
@@ -234,16 +234,16 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="content">
-                                                            <p>
-                                                                ■ Created (and currently maintain) an E-Learning portal for the company enabling agents to take courses via the <a style="
-                                                                color: red" href="https://github.com/Versal/partner-api">Versal API</a> with admin/ reporting panel also. <br>
-                                                                ■ Re-writing the companies Intranet <br>
-                                                                ■ Building microservices for intergrating customer company API's <br>
-                                                                ■ Using Open Project to plan our time and log feature requests, bugs etc. <br>
-                                                                ■ Version control with GIT on the companies own servers.  <br>
-                                                                ■ Meetings with mangement on how to improve software at the company.<br>
-                                                            </p>
+                                                        <div class="content">                                                           
+
+                                                                {% for detail in job_desc %}  
+
+                                                                    {% if detail.job_details_id == job.id %}  
+                                                                        <p>{{detail.description}}<br></p>                                                            
+                                                                    {% endif %}
+
+                                                                {% endfor %}                                                        
+                                                                                                                   
                                                         </div>
                                                     </td>
                                                 </tr>
