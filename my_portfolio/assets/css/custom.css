@@ -1,0 +1,15 @@
+.txt-white {
+    color: white;
+}
+
+.pt--60 {
+    text-align: center;    
+}
+
+.banner--section {
+    background-image: url('/public/img/bg.jpg');
+}
+
+a {
+    color:red;
+}
