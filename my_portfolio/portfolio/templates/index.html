@@ -208,8 +208,12 @@
                         </div>
 
                         <!-- Timeline Items Start -->
+                        {% block content %}
                         <ul class="timeline--items nav">
-                                <li>
+                        {% if job_list %}        
+
+                                    {% for job in job_list %}                    
+                                    <li>
                                         <!-- Timeline Item Start -->
                                         <div class="timeline--item">
                                             <div class="icon bg-light">
@@ -219,14 +223,14 @@
                                             <table class="table" data-scroll-reveal="bottom">
                                                 <tr>
                                                     <td>
-                                                        <p class="date bg-primary">July 2018 - Present</p>
+                                                        <p class="date bg-primary">{{ job.date_from_to }}</p>
         
                                                         <div class="bottom">
-                                                            <h4 class="name h6 fw--700"><a href="https://answer-4u.com/"> Answer 4 U</a></h4>
+                                                            <h4 class="name h6 fw--700"><a href="https://answer-4u.com/">{{ job.company_name }}</a></h4>
         
-                                                            <p class="institute ff--primary">.Net C# Developer</p>
+                                                            <p class="institute ff--primary">{{job.job_title}}</p>
         
-                                                            <p class="location fs--12">Nottingham City Centre</p>
+                                                            <p class="location fs--12">{{ job.location }}</p>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -247,83 +251,17 @@
                                         </div>
                                         <!-- Timeline Item End -->
                                     </li>
+                                    {% endfor %}
+                        {% else %}
+
+                        <p> No job list available </p>
+                        {% endif %}
+                              
                             
-                            <li>                                
-                                <!-- Timeline Item Start -->
-                                <div class="timeline--item">
-                                    <div class="icon bg-light">
-                                        <i class="fa fa-briefcase"></i>
-                                    </div>
-
-                                    <table class="table" data-scroll-reveal="bottom">
-                                        <tr>
-                                            <td>
-                                                <p class="date bg-primary">Sept 2017 - June 2018</p>
-
-                                                <div class="bottom">
-                                                    <h4 class="name h6 fw--700"><a href="https://rolleragency.co.uk">Roller Agency</a></h4>
-
-                                                    <p class="institute ff--primary">Junior Software Developer</p>
-
-                                                    <p class="location fs--12">Nottingham, UK</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="content">
-                                                    <p> ■ Working on two main projects using Angular 2+ Web and Angular 5 and Ionic. <br>
-                                                        ■ Complex usage of Google Firebase and AngularFire 2+. <br>
-                                                        ■ Good knowledge of GIT and BitBucket. <br>
-                                                        ■ Good version control with regular commits to BitBucket. <br>
-                                                        ■ Best practice in regards to code formatting, keeping it tidy! <br>
-                                                        ■ Experience with JIRA as well as Zeplin for Wireframes.</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <!-- Timeline Item End -->
-                            </li>
-                            <li>
-                                <!-- Timeline Item Start -->
-                                <div class="timeline--item">
-                                    <div class="icon bg-light">
-                                        <i class="fa fa-briefcase"></i>
-                                    </div>
-
-                                    <table class="table" data-scroll-reveal="bottom">
-                                        <tr>
-                                            <td>
-                                                <p class="date bg-primary">Aug 2016 - Sept 2018</p>
-
-                                                <div class="bottom">
-                                                    <h4 class="name h6 fw--700"><a href="http://commlink.co.uk/"> Comm Link</a></h4>
-
-                                                    <p class="institute ff--primary">Junior System Programmer</p>
-
-                                                    <p class="location fs--12">Pleasley, Mansfield</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="content">
-                                                    <p>
-                                                        ■ Programming scripts for the call centre using a bespoke program. <br>
-                                                        ■ Creating client info pages using HTML, CSS and JavaScript. <br>
-                                                        ■ Use of MS SQL Server and T-SQL for client databases and use inside scripts. <br>
-                                                        ■ Using Sage CRM for updates and fixes on existing scripts. <br>
-                                                        ■ Creating any external software on Visual Studio in ASP.NET or Winforms (C#). <br>
-                                                        ■ Use of Microsoft Visio for flow charts.<br>
-                                                        ■ Suggesting improvements on design and functionality.<br>
-                                                        ■ Liaising with the call centre agents to monitor usability.<br>
-                                                    </p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <!-- Timeline Item End -->
-                            </li>
+                          
                            
                         </ul>
+                        {% endblock %}
                         <!-- Timeline Items End -->
                     </div>
                     <!-- Timeline Block End -->
