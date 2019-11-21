@@ -1,5 +1,5 @@
 # my_portfolio
-Mainly rewrote the backend into Django for easier maintenance.
+Rewritten portfolio into Django for easier maintenance.
 
 ### TODO:
 - [ ] Send Email
