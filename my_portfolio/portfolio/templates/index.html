@@ -109,7 +109,8 @@
                                     </div> 
 
                                     <div class="desc">
-                                        <p>This site was made in Django, with an sqlite backend for the content 🤠 </p>
+                                        <p>This site was made in Django, with an sqlite db for the content 🤠 </p>
+                                        <a class="text-white" href="https://github.com/DanHarries/my_portfolio" target="_blank"> Click for repo<a/>
                                     </div>
 
                                     <div class="action">
@@ -287,8 +288,10 @@
                     <div class="title text-center text-uppercase pb--30">
                         <h3 class="h4">Get in touch below</h3>                                               
                     </div>
-                    <form method="POST" action="send" id="contact-form">
-                       
+                 
+                                            
+                    <form action="{% url 'email' %}" method="POST" id="contact-form">
+                       {% csrf_token %}
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -315,7 +318,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <button type="submit" id="send-email" class="btn btn-block btn-primary">Send Message</button>
+                                <button disabled type="submit" id="send-email" class="btn btn-block btn-primary">Send Message</button>
                             </div>
                         </div>
                     </form>

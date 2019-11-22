@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import JobDetail, JobDescription
-from django.db.models import Count
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -12,4 +12,19 @@ def index(request):
   
     return render(request, 'index.html', context)
 
+def email(request):
+    name = request.POST.get('name')
+    email_address = request.POST.get('email')
+    subject = request.POST.get('subject')
+    message = request.POST.get('message')
+        
+    if not name or not email_address or not subject or not message:
+        print('error')
+        return render(request, 'index.html', {            
+            'error_message': "Please fill in all the fields",
+        })
+    else:
+        return HttpResponseRedirect(reverse('index.html'))
+        
     
+    return render(request, 'index.html')
